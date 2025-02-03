@@ -1,0 +1,36 @@
+{% extends 'admin1/base.html' %}
+
+{% block title %} 
+URBAN CART
+{% endblock %}
+
+{% block content %}
+<div class="container" style="color: black; padding: 2%;">
+    <div class="row text-center">
+        <div class="mb-3 row" style="margin-bottom: 1%;">
+            <h1></h1><label class="col-sm-12 col-form-label"><a href="index.html">Delete - <span style="color: red;">Item</span></a></label></h1>
+
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+        <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Product Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="product" name="name">
+            </div>
+          </div>
+         
+          <!-- <button class="" type="submit">Add Item</button> -->
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Delete</button>
+          </div>
+        </form>
+        
+          
+    </div>
+   
+</div>
+	
+
+{% endblock %}
+	

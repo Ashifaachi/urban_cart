@@ -1,0 +1,115 @@
+{% extends 'home/base.html' %}
+{% block title %}URBAN CART{% endblock %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+{% if sliders %}
+<!-- Slider Section -->
+<section id="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        {% for slide in sliders %}
+                            <li data-target="#slider-carousel" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                        {% endfor %}
+                    </ol>
+
+                    <!-- Carousel Items -->
+                    <div class="carousel-inner">
+                        {% for slide in sliders %}
+                            <div class="item {% if forloop.first %}active{% endif %}">
+                                <div class="col-sm-6">
+                                    <h1>{{ slide.add_head }}</h1>
+                                    <h2>{{ slide.add_sub_head }}</h2>
+                                    <p>{{ slide.add_text }}</p>
+                                    <h5>Off up to RS {{ slide.add_price }}</h5>
+                                    <button type="button" class="btn btn-default get">
+                                        <a style="text-decoration: none; color: white;" href="{% url 'product_list' %}">Get it now</a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{ slide.add_image.url }}" class="girl img-responsive" alt="Slide Image" />
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Controls -->
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<section id="list-topics" class="list-topics">
+    <div class="container">
+        <div class="list-topics-content">
+            <ul style="display: flex; justify-content: space-between;">
+                <li>
+                    <div class="single-list-topics-content text-center">
+                        <div class="single-list-topics-icon">
+                            
+                        </div>
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="150" src="{% static 'home/images/home/casual_shoes2.jpg' %}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" style="border-radius: 50px;">
+                        <h3><a style="text-decoration: none; color: rgba(0, 0, 0, 0.5);" href="{% url 'product_category' '1' %}">Casual Shoes</a></h3>
+                        
+                    </div>
+                </li>
+                <li>
+                    <div class="single-list-topics-content text-center">
+                        <div class="single-list-topics-icon">
+                            
+                        </div>
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="150" src="{% static 'home/images/home/formal_shoes.jpg' %}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" style="border-radius: 50px;">
+                        <h3><a style="text-decoration: none; color: rgba(0, 0, 0, 0.5);" href="{% url 'product_category' '2' %}">Formal Shoes</a></h3>
+                        
+                    </div>
+                </li>
+                <li>
+                    <div class="single-list-topics-content text-center">
+                        <div class="single-list-topics-icon">
+                            
+                        </div>
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="150" src="{% static 'home/images/home/casual_shoes1.jpg' %}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" style="border-radius: 50px;">
+                        <h3><a style="text-decoration: none; color: rgba(0, 0, 0, 0.5);" href="{% url 'product_category' '3' %}">Sports Shoes</a></h3>
+                        
+                    </div>
+                </li>
+                <li>
+                    <div class="single-list-topics-content text-center">
+                        <div class="single-list-topics-icon">
+                            
+                        </div>
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="150" src="{% static 'home/images/home/kids_shoes.jpg' %}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" style="border-radius: 50px;">
+                        <h3><a style="text-decoration: none; color: rgba(0, 0, 0, 0.5);" href="{% url 'product_category' '4' %}">Kids Shoes</a></h3>
+                        
+                    </div>
+                </li>
+                
+                
+                
+              
+            </ul>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}

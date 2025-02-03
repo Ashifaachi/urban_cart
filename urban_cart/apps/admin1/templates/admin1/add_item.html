@@ -1,0 +1,111 @@
+{% extends 'admin1/base.html' %}
+
+{% block title %} 
+URBAN CART
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="color: black; padding: 2%;">
+    <div class="row text-center">
+        <div class="mb-3 row" style="margin-bottom: 1%;">
+            <h1></h1><label class="col-sm-12 col-form-label"><a href="index.html">ADD - <span style="color: red;">ITEM</span></a></label></h1>
+
+        </div>
+        
+        
+        
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Product Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="text" name="name">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label  class="col-sm-2 col-form-label">Manufacturer</label>
+            <select name="manufacturer" class="col-sm-10 form-select form-select-lg " style="border: 1px solid rgba(128, 128, 128, 0.5);border-radius: 5px;">
+             
+              <option value="" selected>Select Category</option>
+              {% for man in manufacturer %}
+                <option value="{{ man.name }}">{{ man.name }}</option>
+               {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label  class="col-sm-2 col-form-label">Main Category</label>
+            <select name="main_category" class="col-sm-10 form-select form-select-lg " style="border: 1px solid rgba(128, 128, 128, 0.5);border-radius: 5px;">
+             
+              <option value="" selected>Select Category</option>
+              {% for main in main_category %}
+                <option value="{{ main.name }}">{{ main.name }}</option>
+               {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label  class="col-sm-2 col-form-label">Sub Category</label>
+            <select name="sub_category" class="col-sm-10 form-select form-select-lg " style="border: 1px solid rgba(128, 128, 128, 0.5);border-radius: 5px;">
+             
+              <option value="" selected>Select Category</option>
+              {% for sub in sub_category %}
+                <option value="{{ sub.name }}">{{ sub.name }}</option>
+               {% endfor %}
+              </select>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Image URL</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="text" name="image_url">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Site URL</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="text" name="site_link">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Rating</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="text" name="ratings" step="0.01" min="0">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">No Of Rating</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="text" name="no_of_ratings">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Discount Price</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="text" name="discount_price" step="0.01" min="0">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Actual Price</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="text" name="actual_price" step="0.01" min="0">
+            </div>
+          </div>
+          <div class="mb-3 row" style="margin-bottom: 1%;">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Product Stock</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="text" name="product_stock" value="100">
+            </div>
+          </div>
+          <!-- <button class="" type="submit">Add Item</button> -->
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Add Item</button>
+          </div>
+        </form>
+        
+          
+    </div>
+   
+</div>
+	
+
+{% endblock %}
+	
