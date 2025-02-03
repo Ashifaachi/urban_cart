@@ -138,7 +138,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
+import environ
 
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
-RAZORPAY_KEY_ID = 'rzp_test_3XmJ02n0BgVfga'
-RAZORPAY_KEY_SECRET = 'AWznijDN6qKm0oS4DgfYpptd'
+# Fetch Razorpay credentials securely
+RAZORPAY_KEY_ID = env("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = env("RAZORPAY_KEY_SECRET")
+
